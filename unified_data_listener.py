@@ -9,22 +9,21 @@ from get_ultrasonic_range_server import *
 
 def callback_ir(data):
     #rospy.loginfo(rospy.get_caller_id() + "ir raw data: %s", data.data)
-    range_mm = handle_get_ir_range(data)
-    print("range: {0} mm".format(range_mm))
-    # print(data.data)
+    ir_range_mm = handle_get_ir_range(data)
+    print("Infrared range: {0} mm".format(ir_range_mm))
+    return ir_range_mm
 
 
 def callback_mag(data):
-    # rospy.loginfo(rospy.get_caller_id())
     heading = handle_get_heading(data)
     print("Heading: {0}".format(heading))
-    #print("Magnetometer:  x {0}, y {1}, z {2}".format(data.x, data.y, data.z))
+    return heading
 
 
 def callback_sonar(data):
-    #rospy.loginfo(rospy.get_caller_id() + "ultrasonic raw data: %s", data.data)
-    range_cm = handle_get_ultrasonic_range(data)
-    print("range: {0} cm".format(range_cm))
+    us_range_cm = handle_get_ultrasonic_range(data)
+    print("ultrasonic range: {0} cm".format(us_range_cm))
+    return us_range_cm
 
 
 def listener():
