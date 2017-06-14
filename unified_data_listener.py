@@ -6,6 +6,9 @@ from get_ir_range_server import *
 from get_heading_server import *
 from get_ultrasonic_range_server import *
 
+# toggle the led
+#  rostopic pub toggle_led std_msgs/Empty --once
+
 
 def callback_ir(data):
     #rospy.loginfo(rospy.get_caller_id() + "ir raw data: %s", data.data)
