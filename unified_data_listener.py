@@ -1,10 +1,12 @@
 #!/usr/bin/env python3
 import rospy
 from std_msgs.msg import Float32
+from std_msgs.msg import Int16
 from geometry_msgs.msg import Point
 from get_ir_range_server import *
 from get_heading_server import *
 from get_ultrasonic_range_server import *
+from get_encoder_server import *
 
 # toggle the led
 #  rostopic pub toggle_led std_msgs/Empty --once
@@ -29,6 +31,18 @@ def callback_sonar(data):
     return us_range_cm
 
 
+def callback_encoder_right(data):
+    ticks_right = handle_get_encoder(data)
+    print("ticks right: {0}".format(ticks_right))
+    return ticks_right
+
+
+def callback_encoder_left(data):
+    ticks_left = handle_get_encoder(data)
+    print("ticks left: {0}".format(ticks_left))
+    return ticks_left
+
+
 def listener():
     # In ROS, nodes are uniquely named. If two nodes with the same
     # node are launched, the previous one is kicked off. The
@@ -42,6 +56,10 @@ def listener():
     rospy.Subscriber("mag_data_raw", Point, callback_mag)
 
     rospy.Subscriber("ultrasonic_data_raw", Float32, callback_sonar)
+
+    rospy.Subscriber("encoder_data_right", Int16, callback_encoder_right)
+
+    rospy.Subscriber("encoder_data_left", Int16, callback_encoder_left)
 
     # spin() simply keeps python from exiting until this node is stopped
     rospy.spin()
