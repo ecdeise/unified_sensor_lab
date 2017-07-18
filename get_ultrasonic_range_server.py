@@ -19,8 +19,8 @@ def get_ultrasonic_range(data_sample):
 
 def handle_get_ultrasonic_range_server():
     rospy.init_node('find ultrasonic range from raw data to mm')
-    s = rospy.Service('get_ultrasonic_range',
-                      getUltraSonicRange, handle_get_ultrasonic_range)
+    rospy.Service('get_ultrasonic_range', getUltraSonicRange,
+                  handle_get_ultrasonic_range)
     rospy.spin()
 
 
