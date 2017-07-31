@@ -1,6 +1,8 @@
 import unittest
 from get_ir_range_server import get_ir_range
 
+# edeise@D13:~/code/Robot/unified_sensor_lab (master)$ python -m unit_tests/get_ir_range_server_unit_test
+
 
 class TestGetIrRange(unittest.TestCase):
 

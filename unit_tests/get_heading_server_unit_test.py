@@ -1,6 +1,8 @@
 import unittest
 from get_heading_server import get_heading
 
+# edeise@D13:~/code/Robot/unified_sensor_lab (master)$ python -m unit_tests/get_heading_server_unit_test
+
 class data_sample:
     def __init__(self):
         self.y = 10

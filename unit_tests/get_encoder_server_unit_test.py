@@ -1,6 +1,7 @@
 import unittest
 from get_encoder_server import get_encoder
 
+# edeise@D13:~/code/Robot/unified_sensor_lab (master)$ python -m unit_tests/get_encoder_server_unit_test
 
 class TestGetEncoder(unittest.TestCase):
 
